@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Clientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b901a97f-6477-4b21-98f4-fb10d07251eb">
+	<property name="ireport.zoom" value="1.6105100000000014"/>
+	<property name="ireport.x" value="27"/>
+	<property name="ireport.y" value="0"/>
+	<style name="filas">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2==1]]></conditionExpression>
+			<style mode="Opaque" forecolor="#FF9999" backcolor="#FFFFFF"/>
+		</conditionalStyle>
+	</style>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombreUsuario" class="java.lang.String"/>
+	<field name="apellidosUsuario" class="java.lang.String"/>
+	<field name="dniUsuario" class="java.lang.String"/>
+	<field name="nombreActividad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="79" forecolor="#FFFFFF" backcolor="#FF0033" uuid="e2fc014c-55e7-4964-ab42-c08c4764fc12"/>
+				<textElement>
+					<font fontName="Serif" size="40" isBold="true"/>
+					<paragraph firstLineIndent="10"/>
+				</textElement>
+				<text><![CDATA[                   RESERVAS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="141" height="79" uuid="00ecd1db-c72d-437b-852a-eff435751c80"/>
+				<imageExpression><![CDATA["..\\img\\LogoPaxisPequeño.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="447" height="35" forecolor="#FF0033" uuid="ff30452f-e856-457e-b42a-84a5f25bc5a3"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informe Reservas de Usuario Actividad de Paxis Inclusion]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="455" y="0" width="100" height="20" forecolor="#FF0000" uuid="97bc6ded-b161-4614-b8a1-8154bddf75ae"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="87" height="20" forecolor="#FFFFFF" backcolor="#FF0033" uuid="b33f66c0-b506-4f49-95cf-4d106abdf9d5"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Reserva]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="203" y="0" width="122" height="20" forecolor="#FFFFFF" backcolor="#FF0033" uuid="dcd09a48-1803-4876-8e59-0fba19348dbf"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="87" y="0" width="116" height="20" forecolor="#FFFFFF" backcolor="#FF0033" uuid="ff319838-fef2-48b6-8348-34123d89eb7a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="325" y="0" width="92" height="20" forecolor="#FFFFFF" backcolor="#FF0033" uuid="d9e88fef-7c28-49c3-b83b-f9efd92a645e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="417" y="0" width="136" height="20" forecolor="#FFFFFF" backcolor="#FF0033" uuid="945906b8-ae06-4746-a6e5-836bc1dc5287"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Actividad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement style="filas" mode="Opaque" x="0" y="0" width="87" height="20" forecolor="#FFFFFF" backcolor="#FF9999" uuid="529bb04d-770c-4859-9c69-6817147464cb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="filas" mode="Opaque" x="87" y="0" width="116" height="20" forecolor="#FFFFFF" backcolor="#FF9999" uuid="b6d0cf34-c05a-469a-a8eb-ba3272c6e226"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreUsuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="filas" mode="Opaque" x="417" y="0" width="136" height="20" forecolor="#FFFFFF" backcolor="#FF9999" uuid="38d46165-9798-4552-8a34-3c61d2755541"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreActividad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="filas" mode="Opaque" x="325" y="0" width="92" height="20" forecolor="#FFFFFF" backcolor="#FF9999" uuid="504cdefd-a96c-4ab2-978c-4b14da2583f9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dniUsuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="filas" mode="Opaque" x="203" y="0" width="122" height="20" forecolor="#FFFFFF" backcolor="#FF9999" uuid="e0bd8c53-2b00-4520-9262-6cb0c54e2b39"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellidosUsuario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="497" y="0" width="40" height="20" forecolor="#FF0000" uuid="21699abe-aa36-43ff-9ffa-0c354b287b1b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="319" y="0" width="178" height="20" forecolor="#FFFFFF" backcolor="#FF0000" uuid="53729a29-78c9-4f0f-a884-fa96fe75a5c3"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" De"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="497" y="22" width="58" height="20" forecolor="#FFFFFF" backcolor="#FF0000" uuid="6a2c4f25-6dbd-4fcf-bed7-0c00a838b7f5"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="395" y="22" width="102" height="20" forecolor="#FF0000" backcolor="#FFFFFF" uuid="9631503d-c627-4116-b86c-36d1c231d6e0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de Reservas:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
