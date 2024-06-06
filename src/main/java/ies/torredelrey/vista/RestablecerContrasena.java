@@ -15,14 +15,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * Clase Restablecer Contraseña
+ * Permite modificar la contraseña del administrador. . 
+ * @version 1.0
  */
 public class RestablecerContrasena extends javax.swing.JFrame {
     private EntityManagerFactory emf;
     private AdministradorJpaController admin;
     /**
      * Creates new form RestablecerContraseña
+     */
+    /**
+     * Constructor por defecto
+     * Inicializa los componentes y establece configuraciones básicas de la ventana.
      */
     public RestablecerContrasena() {
         initComponents();
@@ -169,7 +175,12 @@ public class RestablecerContrasena extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Método que se ejecuta al presionar el botón "aceptar".
+     * Valida que las contraseñas sean iguales y que el administador exista y modifica la contraseña.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         boolean salir = false;
         //validacion de campos en blancos y para que las contraseñas coincidan
@@ -218,7 +229,12 @@ public class RestablecerContrasena extends javax.swing.JFrame {
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
-
+/**
+     * Método que se ejecuta al presionar el botón "Reset".
+     * Resetea los campos y los pone en blancos.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         //reseteamos campos
         txtDni.setText("");
@@ -227,6 +243,7 @@ public class RestablecerContrasena extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     /**
+     * Método principal que lanza la aplicación.
      * @param args the command line arguments
      */
     public static void main(String args[]) {

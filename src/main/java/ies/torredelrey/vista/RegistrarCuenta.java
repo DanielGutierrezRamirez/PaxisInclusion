@@ -17,14 +17,21 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * Clase Registrar Cuneta
+ * Permite registrar una cuenta como administrador de la aplicacion. . 
+ * @version 1.0
  */
+
 public class RegistrarCuenta extends javax.swing.JFrame {
     private EntityManagerFactory emf;
     private AdministradorJpaController admin;
     /**
      * Creates new form RegistrarCuenta
+     */
+    /**
+     * Constructor por defecto
+     * Inicializa los componentes y establece configuraciones básicas de la ventana.
      */
     public RegistrarCuenta() {
         initComponents();
@@ -238,7 +245,12 @@ public class RegistrarCuenta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Método que se ejecuta al presionar el botón "Guardar".
+     * Valida los datos ingresados y crea un nuevo administrador en la base de datos.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
         boolean salir = false;
         //patrones
@@ -302,7 +314,12 @@ public class RegistrarCuenta extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnGrabarActionPerformed
-
+    /**
+     * Método que se ejecuta al presionar el botón "Reset".
+     * Resetea los campos poniendolo en blancos.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         //resetear campos de texto
         
@@ -314,7 +331,11 @@ public class RegistrarCuenta extends javax.swing.JFrame {
         txtContrasena2.setText("");
         
     }//GEN-LAST:event_btnResetActionPerformed
-
+    /** Acción ejecutada al presionar el botón de Salir
+     * Cierra la ventana actual y abre la ventana de Login.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         //Salir a la pagina principal
         this.dispose();
@@ -323,6 +344,7 @@ public class RegistrarCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
+     * Método principal que lanza la aplicación.
      * @param args the command line arguments
      */
     public static void main(String args[]) {

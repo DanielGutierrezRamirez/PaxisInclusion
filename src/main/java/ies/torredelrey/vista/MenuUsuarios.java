@@ -15,13 +15,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * Clase Menu Usuarios
+ * Permite moverte por las diferentes opciones de los usuarios agregar, editar, eliminar y actualizar. . 
+ * @version 1.0
  */
 public class MenuUsuarios extends javax.swing.JFrame {
     private UsuariosJpaController usur;
     /**
      * Creates new form Usuarios
+     */
+    
+    /**
+     * Constructor por defecto
+     * Inicializa los componentes y establece configuraciones básicas de la ventana.
      */
     public MenuUsuarios() {
         initComponents();
@@ -206,12 +213,22 @@ public class MenuUsuarios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Método que se ejecuta al presionar el botón "Actualizar".
+     * Actualiza la lista de actividades para mostrar en la tabla
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnActualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar1ActionPerformed
         //actualizamos la tabla
         actualizarTablaUsuarios();
     }//GEN-LAST:event_btnActualizar1ActionPerformed
-
+    /**
+     * Método que se ejecuta al presionar el botón "Eliminar".
+     * Elimina el usuario seleccionada siempre y cuando no este en alguna reserva.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         //eliminamos la fila seleccionada
         int selectedRow = tblUsuarios.getSelectedRow();
@@ -236,14 +253,23 @@ public class MenuUsuarios extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnEliminarActionPerformed
-
+    /** Acción ejecutada al presionar el botón de Nuevo
+     * Cierra la ventana actual y abre la ventana de NuevoUsuario.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         //viajamos a la ventana de nuevo usuario
         NuevoUsuario nuevo = new NuevoUsuario();
         nuevo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnNuevoActionPerformed
-
+    /**
+     * Método que se ejecuta al presionar el botón "Editar".
+     * Valida los datos ingresados y modifica los datos del usuario en la base de datos.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // la fila selecionada es la que modificaremos
         int selectedRow = tblUsuarios.getSelectedRow();
@@ -262,7 +288,11 @@ public class MenuUsuarios extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnEditarActionPerformed
-
+    /** Acción ejecutada al presionar el botón de volver
+     * Cierra la ventana actual y abre la ventana de Menu.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         //volvemos al menu principal
         this.dispose();
@@ -272,6 +302,7 @@ public class MenuUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
+     * Método principal que lanza la aplicación.
      * @param args the command line arguments
      */
     public static void main(String args[]) {

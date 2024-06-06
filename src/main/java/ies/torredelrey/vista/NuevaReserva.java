@@ -24,8 +24,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * Clase Nueva Reserva
+ * Permite crear una nueva reserva. . 
+ * @version 1.0
  */
 public class NuevaReserva extends javax.swing.JFrame {
     private ReservasJpaController res;
@@ -35,6 +37,10 @@ public class NuevaReserva extends javax.swing.JFrame {
     private String nombreActividadSeleccionada; //donde guardaremos el nombre de la actividad seleccionada
     /**
      * Creates new form NuevoUsuario
+     */
+    /**
+     * Constructor por defecto
+     * Inicializa los componentes y establece configuraciones básicas de la ventana.
      */
     public NuevaReserva() {
         initComponents();
@@ -348,7 +354,12 @@ public class NuevaReserva extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Método que se ejecuta al presionar el botón "Reservar".
+     * Busca los usuarios y las actividades y una vez selecionadas se valida los datos seleccionados y crea una nueva reserva en la base de datos.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
         //crear la nueva reserva
         Reservas reserva = new Reservas();
@@ -418,7 +429,12 @@ public class NuevaReserva extends javax.swing.JFrame {
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnReservarActionPerformed
-
+    /**
+     * Método que se ejecuta al presionar el botón "Reser".
+     * elimina los campos dejandolo en blanco.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // limpiamos los campos de texto
         txtNombre.setText("");
@@ -434,7 +450,11 @@ public class NuevaReserva extends javax.swing.JFrame {
         lstDni.clearSelection();
         lstNombreActividad.clearSelection();
     }//GEN-LAST:event_btnResetActionPerformed
-
+    /** Acción ejecutada al presionar el botón de Salir
+     * Cierra la ventana actual y abre la ventana de MenuReserva.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         //volvemos al menu reserva
         MenuReserva menu = new MenuReserva();
@@ -483,6 +503,7 @@ public class NuevaReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_lstNombreActividadMouseClicked
 
     /**
+     * Método principal que lanza la aplicación.
      * @param args the command line arguments
      */
     public static void main(String args[]) {

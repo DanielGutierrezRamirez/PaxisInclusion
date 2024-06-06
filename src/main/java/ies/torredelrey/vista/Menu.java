@@ -17,9 +17,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * Clase Menu
+ * Permite moverte por los diferentes menus, visitar links y que te salga el Informe . 
+ * @version 1.0
  */
+
 public class Menu extends javax.swing.JFrame {
 
     private Administrador administrador;
@@ -28,17 +31,35 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    
+    /**
+     * Constructor que recibe un objeto Administrador.
+     * Inicializa los componentes de la interfaz gráfica y muestra el saludo correspondiente al administrador.
+     * 
+     * @param administrador El administrador que ha iniciado sesión.
+     */
     public Menu(Administrador administrador) {
         this.administrador = administrador;
     }
     private String nombreAdministrador;
 
+    /**
+     * Constructor que recibe el nombre del administrador.
+     * Inicializa los componentes de la interfaz gráfica y muestra el saludo correspondiente al administrador.
+     * 
+     * @param nombreAdministrador El nombre del administrador que ha iniciado sesión.
+     */
     public Menu(String nombreAdministrador) {
         initComponents();
         this.nombreAdministrador = nombreAdministrador;
         // Mostrar el saludo del administrador al entrar al Menu
         lblSaludo.setText("Hola " + nombreAdministrador + ", bienvenido");
     }
+    
+    /**
+     * Constructor por defecto.
+     * Inicializa los componentes de la interfaz gráfica y crea una instancia del controlador de reservas.
+     */
     public Menu() {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/img/LogoPaxis.jpeg")).getImage()); //icono de pantalla
@@ -82,7 +103,7 @@ public class Menu extends javax.swing.JFrame {
         mniAtencionUusuarioFamilia = new javax.swing.JMenuItem();
         mnuSedes = new javax.swing.JMenu();
         MnuSevilla = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        mnuAljarafe = new javax.swing.JMenuItem();
         mnuAudioVisual = new javax.swing.JMenu();
         mnuContacto = new javax.swing.JMenu();
         mnuSalir = new javax.swing.JMenu();
@@ -277,13 +298,13 @@ public class Menu extends javax.swing.JFrame {
         });
         mnuSedes.add(MnuSevilla);
 
-        jMenuItem7.setText("Aljarafe");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        mnuAljarafe.setText("Aljarafe");
+        mnuAljarafe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                mnuAljarafeActionPerformed(evt);
             }
         });
-        mnuSedes.add(jMenuItem7);
+        mnuSedes.add(mnuAljarafe);
 
         jMenuBar1.add(mnuSedes);
 
@@ -328,7 +349,12 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Acción que se ejecuta al seleccionar la opción de cursos en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
     private void mniCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniCursoActionPerformed
                                               
         String url = "https://paxisinclusion.org/cursos"; // La URL que deseas abrir
@@ -343,7 +369,12 @@ public class Menu extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_mniCursoActionPerformed
-
+/**
+ * Acción que se ejecuta al seleccionar la opción de Sevilla en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
     private void MnuSevillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnuSevillaActionPerformed
         String url = "https://paxisinclusion.org/sevilla"; // La URL que deseas abrir
 
@@ -356,7 +387,12 @@ public class Menu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_MnuSevillaActionPerformed
-
+/**
+ * Acción que se ejecuta al seleccionar la opción de Pagina Web en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
     private void mnuPaginaWebMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuPaginaWebMouseClicked
         String url = "https://paxisinclusion.org/"; // La URL que deseas abrir
 
@@ -369,7 +405,12 @@ public class Menu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mnuPaginaWebMouseClicked
-
+/**
+ * Acción que se ejecuta al seleccionar la opción de sobre nosotros en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
     private void mnuSobreNosotrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuSobreNosotrosMouseClicked
         String url = "https://paxisinclusion.org/sobre-nosotros"; // La URL que deseas abrir
 
@@ -382,7 +423,12 @@ public class Menu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mnuSobreNosotrosMouseClicked
-
+/**
+ * Acción que se ejecuta al seleccionar la opción de equipo en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
     private void mnuEquipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuEquipoMouseClicked
         String url = "https://paxisinclusion.org/equipo"; // La URL que deseas abrir
 
@@ -395,7 +441,12 @@ public class Menu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mnuEquipoMouseClicked
-
+/**
+ * Acción que se ejecuta al seleccionar la opción de atencion al usuario en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
     private void mniAtencionAlUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mniAtencionAlUsuarioMouseClicked
         String url = "https://paxisinclusion.org/atencion-al-usuario"; // La URL que deseas abrir
 
@@ -408,7 +459,12 @@ public class Menu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mniAtencionAlUsuarioMouseClicked
-
+/**
+ * Acción que se ejecuta al seleccionar la opción de atencion a la familia en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
     private void mniAtencionFamiliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAtencionFamiliaActionPerformed
         String url = "https://paxisinclusion.org/atencion-a-la-familia"; // La URL que deseas abrir
 
@@ -421,7 +477,12 @@ public class Menu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mniAtencionFamiliaActionPerformed
-
+/**
+ * Acción que se ejecuta al seleccionar la opción de atencion de usuarios y familias en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
     private void mniAtencionUusuarioFamiliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAtencionUusuarioFamiliaActionPerformed
         String url = "https://paxisinclusion.org/atencion-al-usuario-y-la-familia"; // La URL que deseas abrir
 
@@ -434,8 +495,13 @@ public class Menu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mniAtencionUusuarioFamiliaActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+/**
+ * Acción que se ejecuta al seleccionar la opción de aljarafe en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
+    private void mnuAljarafeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAljarafeActionPerformed
         String url = "https://paxisinclusion.org/aljarafe"; // La URL que deseas abrir
 
         if (Desktop.isDesktopSupported()) {
@@ -446,8 +512,13 @@ public class Menu extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "No se puede abrir el enlace: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
+    }//GEN-LAST:event_mnuAljarafeActionPerformed
+/**
+ * Acción que se ejecuta al seleccionar la opción de audiovisual en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
     private void mnuAudioVisualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuAudioVisualMouseClicked
         String url = "https://paxisinclusion.org/descargas"; // La URL que deseas abrir
 
@@ -460,7 +531,12 @@ public class Menu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mnuAudioVisualMouseClicked
-
+/**
+ * Acción que se ejecuta al seleccionar la opción de contacto en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
     private void mnuContactoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuContactoMouseClicked
         String url = "https://paxisinclusion.org/contacto"; // La URL que deseas abrir
 
@@ -473,14 +549,24 @@ public class Menu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mnuContactoMouseClicked
-
+ /**
+     * Acción ejecutada al presionar el botón de salir.
+     * Cierra la ventana actual y abre la ventana de login.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void mnuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuSalirMouseClicked
         //vuelta a la pagina principal
         Login login = new Login();
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_mnuSalirMouseClicked
-
+/**
+ * Acción que se ejecuta al seleccionar la opción de atencion al usuario en el menú.
+ * Abre la URL de la página de cursos en un navegador web predeterminado.
+ * 
+ * @param evt El evento de acción.
+ */
     private void mniAtencionAlUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAtencionAlUsuarioActionPerformed
         String url = "https://paxisinclusion.org/atencion-al-usuario"; // La URL que deseas abrir
 
@@ -493,33 +579,54 @@ public class Menu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_mniAtencionAlUsuarioActionPerformed
-
+    /**
+     * Acción ejecutada al presionar el botón de Usuarios.
+     * Cierra la ventana actual y abre la ventana de menu usuarios.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
         //ir al menu de usuarios
         MenuUsuarios usuarios = new MenuUsuarios(); 
         usuarios.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnUsuariosActionPerformed
-
+    /**
+     * Acción ejecutada al presionar el botón de actividades.
+     * Cierra la ventana actual y abre la ventana de menu actividades.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesActionPerformed
         //ir al menu de actividades
         MenuActividades actividades = new MenuActividades(); 
         actividades.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnActividadesActionPerformed
-
+ /**
+     * Acción ejecutada al presionar el botón de reservas.
+     * Cierra la ventana actual y abre la ventana de registrar menu reservas.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
         //ir al menu de reservas
         MenuReserva reserva = new MenuReserva();
         reserva.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnReservasActionPerformed
-
+ /**
+     * Acción ejecutada al presionar el botón de Informes.
+     * te muestra en pdp el informe de las reservas por usuario y actividad.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnInformesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformesActionPerformed
          Generador.leerInformeReservas(res.findReservasEntities(), "src\\main\\resources\\report\\Reservas.jasper", "Reservas.pdf");
     }//GEN-LAST:event_btnInformesActionPerformed
 
     /**
+     * Método principal que lanza la aplicación.
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -565,13 +672,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblSaludo;
     private javax.swing.JMenuItem mniAtencionAlUsuario;
     private javax.swing.JMenuItem mniAtencionFamilia;
     private javax.swing.JMenuItem mniAtencionUusuarioFamilia;
     private javax.swing.JMenuItem mniCurso;
+    private javax.swing.JMenuItem mnuAljarafe;
     private javax.swing.JMenu mnuAudioVisual;
     private javax.swing.JMenu mnuContacto;
     private javax.swing.JMenu mnuEquipo;

@@ -18,17 +18,28 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * 
+ * clase EditarUusuario
+ * Edita a los usuarios existentes
+ * @version 1.0
  */
 public class EditarUsuario extends javax.swing.JFrame {
     private Usuarios usuario;
     private UsuariosJpaController Usur;
+    
     /**
-     * Creates new form NuevoUsuario
+     * Constructor por defecto
      */
     public EditarUsuario() {
+        
     }
-
+    /**
+     * Constructor que recibe un objeto Usuarios.
+     * Inicializa los componentes de la interfaz gráfica y carga los datos del usuario en los campos correspondientes.
+     * 
+     * @param usuario El usuario cuyos datos se desean editar.
+     */
     public EditarUsuario(Usuarios usuario) {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/img/LogoPaxis.jpeg")).getImage()); //icono de pantalla
@@ -309,7 +320,12 @@ public class EditarUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Método que se ejecuta al presionar el botón "Modificar".
+     * Valida los datos ingresados y modifica los datos del usuario en la base de datos.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         
         boolean salir = false;
@@ -402,7 +418,12 @@ public class EditarUsuario extends javax.swing.JFrame {
             Logger.getLogger(EditarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnModificarActionPerformed
-
+    /**
+     * Método que se ejecuta al presionar el botón "Reset".
+     * Restaura los datos originales del usuario en los campos correspondientes.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // Resetea los campos de texto cargando los datos de la actividad  existente
         txtDni.setText(usuario.getDni());
@@ -417,7 +438,12 @@ public class EditarUsuario extends javax.swing.JFrame {
         txtProvincia.setText(usuario.getProvincia());
         txtLocalidad.setText(usuario.getLocalidad());
     }//GEN-LAST:event_btnResetActionPerformed
-
+    /**
+     * Método que se ejecuta al presionar el botón "Salir".
+     * Cierra la ventana actual y abre el menú de usuarios.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         //sale al menu de usuarios
         MenuUsuarios usuariomenu = new MenuUsuarios();
@@ -426,6 +452,7 @@ public class EditarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
+     * Método principal que lanza la aplicación.
      * @param args the command line arguments
      */
     public static void main(String args[]) {

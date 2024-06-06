@@ -22,19 +22,40 @@ import javax.persistence.NoResultException;
 
 /**
  *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * 
+ * clase ActividadJpaController
+ * Proporciona métodos para crear, editar, eliminar y buscar actividades.
+ * @version 1.0
  */
+
 public class ActividadJpaController implements Serializable {
 
+    private EntityManagerFactory emf = null;
+
+    /**
+     * Constructor que recibe una fábrica de entidades.
+     * 
+     * @param emf La fábrica de entidades para manejar las operaciones JPA.
+     */
     public ActividadJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
 
+    /**
+     * Obtiene el EntityManager para manejar las operaciones JPA.
+     * 
+     * @return El EntityManager.
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     * Encuentra todas las actividades.
+     * 
+     * @return Una lista de todas las actividades.
+     */
     public List<Actividad> findAllActividades() {
         EntityManager em = getEntityManager();
         try {
@@ -44,7 +65,13 @@ public class ActividadJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    /**
+     * Encuentra una actividad por su nombre.
+     * 
+     * @param NombreActividad El nombre de la actividad.
+     * @return La actividad encontrada, o null si no se encuentra.
+     */
     public Actividad findByNombre(String NombreActividad) {
         EntityManager em = getEntityManager();
         try {
@@ -57,7 +84,12 @@ public class ActividadJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    /**
+     * Crea una nueva actividad.
+     * 
+     * @param actividad La actividad a crear.
+     */
     public void create(Actividad actividad) {
         if (actividad.getReservasCollection() == null) {
             actividad.setReservasCollection(new ArrayList<Reservas>());
@@ -90,6 +122,14 @@ public class ActividadJpaController implements Serializable {
         }
     }
 
+    /**
+     * Edita una actividad existente.
+     * 
+     * @param actividad La actividad a editar.
+     * @throws IllegalOrphanException Si se encuentran registros huérfanos.
+     * @throws NonexistentEntityException Si la actividad no existe.
+     * @throws Exception Si ocurre un error durante la edición.
+     */
     public void edit(Actividad actividad) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -146,6 +186,13 @@ public class ActividadJpaController implements Serializable {
         }
     }
 
+    /**
+     * Elimina una actividad por su ID.
+     * 
+     * @param id El ID de la actividad a eliminar.
+     * @throws IllegalOrphanException Si se encuentran registros huérfanos.
+     * @throws NonexistentEntityException Si la actividad no existe.
+     */
     public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -178,14 +225,34 @@ public class ActividadJpaController implements Serializable {
         }
     }
 
+    /**
+     * Encuentra todas las entidades de actividad.
+     * 
+     * @return Una lista de todas las actividades.
+     */
     public List<Actividad> findActividadEntities() {
         return findActividadEntities(true, -1, -1);
     }
 
+    /**
+     * Encuentra un subconjunto de entidades de actividad.
+     * 
+     * @param maxResults El número máximo de resultados.
+     * @param firstResult El primer resultado a devolver.
+     * @return Una lista de actividades.
+     */
     public List<Actividad> findActividadEntities(int maxResults, int firstResult) {
         return findActividadEntities(false, maxResults, firstResult);
     }
 
+    /**
+     * Encuentra las entidades de actividad.
+     * 
+     * @param all Si se deben devolver todas las entidades.
+     * @param maxResults El número máximo de resultados.
+     * @param firstResult El primer resultado a devolver.
+     * @return Una lista de actividades.
+     */
     private List<Actividad> findActividadEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
@@ -202,6 +269,12 @@ public class ActividadJpaController implements Serializable {
         }
     }
 
+    /**
+     * Encuentra una actividad por su ID.
+     * 
+     * @param id El ID de la actividad.
+     * @return La actividad encontrada.
+     */
     public Actividad findActividad(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -211,6 +284,11 @@ public class ActividadJpaController implements Serializable {
         }
     }
 
+    /**
+     * Obtiene el conteo total de actividades.
+     * 
+     * @return El número total de actividades.
+     */
     public int getActividadCount() {
         EntityManager em = getEntityManager();
         try {
@@ -223,8 +301,14 @@ public class ActividadJpaController implements Serializable {
             em.close();
         }
     }
-    
-    public void destroy(Long id) throws Exception { //para aumentar n plazas cuando se elimina una actividad
+
+    /**
+     * Elimina una reserva por su ID y actualiza el número de plazas de la actividad asociada.
+     * 
+     * @param id El ID de la reserva.
+     * @throws Exception Si ocurre un error durante la eliminación.
+     */
+    public void destroy(Long id) throws Exception {
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
@@ -242,7 +326,12 @@ public class ActividadJpaController implements Serializable {
             }
         }
     }
-    
+
+    /**
+     * Encuentra todas las reservas.
+     * 
+     * @return Una lista de todas las reservas.
+     */
     public List<Reservas> findAllReservas() {
         EntityManager em = getEntityManager();
         try {
@@ -252,10 +341,12 @@ public class ActividadJpaController implements Serializable {
         }
     }
 
-
+    /**
+     * Encuentra todas las actividades.
+     * 
+     * @return Una lista de todas las actividades.
+     */
     public List<Actividad> findAllActividad() {
         return findActividadEntities(true, -1, -1);
     }
-    
-    
 }

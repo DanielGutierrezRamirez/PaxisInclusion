@@ -15,17 +15,32 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * 
+ * clase EditarActividad
+ * Edita  las actividades existentes
+ * @version 1.0
  */
+
 public class EditarActividad extends javax.swing.JFrame {
+    
     private Actividad actividad;
     private ActividadJpaController activ;
     /**
      * Creates new form NuevoUsuario
      */
+    
+    /**
+     * Constructor por defecto.
+     */
     public EditarActividad() {
+        
     }
-
+    
+    /**
+     * Constructor con parámetros.
+     * @param actividades coge la actividad a editar.
+     */
     public EditarActividad(Actividad actividades) {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/img/LogoPaxis.jpeg")).getImage()); //icono de pantalla
@@ -192,7 +207,12 @@ public class EditarActividad extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Método que se ejecuta al presionar el botón "Modificar".
+     * Valida los datos ingresados y modifica un usuario en la base de datos.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         //validaciones de espacios en blanco
         try {
@@ -222,13 +242,22 @@ public class EditarActividad extends javax.swing.JFrame {
             Logger.getLogger(EditarActividad.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnModificarActionPerformed
-
+    /**
+     * Método que se ejecuta al presionar el botón "Reset".
+     * Restaura los datos originales de las actividades en los campos correspondientes.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // Resetea los campos de texto cargando los datos de la actividad  existente
         txtNombre.setText(actividad.getNombreActividad());
         spnNplazas.setValue(actividad.getNumeroPlazas());
     }//GEN-LAST:event_btnResetActionPerformed
-
+    /** Acción ejecutada al presionar el botón de Salir
+     * Cierra la ventana actual y abre la ventana de MenuActividadces.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         //salir al menu de actividades sin realizar cambios
         MenuActividades actividadesmenu = new MenuActividades();
@@ -237,7 +266,8 @@ public class EditarActividad extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * @param args los argumentos de la línea de comandos.
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -267,6 +297,7 @@ public class EditarActividad extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new EditarActividad().setVisible(true);

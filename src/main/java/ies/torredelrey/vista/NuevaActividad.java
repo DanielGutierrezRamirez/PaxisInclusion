@@ -15,13 +15,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * Clase Nueva Actividad
+ * Permite crear una nueva actividad. . 
+ * @version 1.0
  */
+
 public class NuevaActividad extends javax.swing.JFrame {
     private ActividadJpaController activ;
     /**
      * Creates new form NuevoUsuario
+     */
+    /**
+     * Constructor por defecto
+     * Inicializa los componentes y establece configuraciones básicas de la ventana.
      */
     public NuevaActividad() {
         initComponents();
@@ -178,7 +185,12 @@ public class NuevaActividad extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Método que se ejecuta al presionar el botón "Guardar".
+     * Valida los datos ingresados y crea una nueva actividad en la base de datos.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         //Guardar la nueva actividad
         Actividad actividad = new Actividad();
@@ -224,7 +236,11 @@ public class NuevaActividad extends javax.swing.JFrame {
             Logger.getLogger(NuevaActividad.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+    /** Acción ejecutada al presionar el botón de reset
+     * Resetea los campos dejandolos en blanco.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // Resetea los campos de texto  
         txtNombre.setText("");
@@ -232,7 +248,11 @@ public class NuevaActividad extends javax.swing.JFrame {
         // Restablece el valor de fecha
         spnNplazas.setValue(0);
     }//GEN-LAST:event_btnResetActionPerformed
-
+    /** Acción ejecutada al presionar el botón de Salir
+     * Cierra la ventana actual y abre la ventana de MenuActividad.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         //Viajamos al Menu de actividades
         MenuActividades menu = new MenuActividades();
@@ -241,6 +261,7 @@ public class NuevaActividad extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
+     * Método principal que lanza la aplicación.
      * @param args the command line arguments
      */
     public static void main(String args[]) {

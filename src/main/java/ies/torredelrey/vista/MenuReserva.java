@@ -16,13 +16,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * Clase Menu Reserva
+ * Permite moverte por las diferentes opciones de las reservas agregar, eliminar y actualizar. . 
+ * @version 1.0
  */
 public class MenuReserva extends javax.swing.JFrame {
     private ReservasJpaController res;
     /**
      * Creates new form Usuarios
+     */
+    
+    /**
+     * Constructor por defecto
+     * Inicializa los componentes y establece configuraciones básicas de la ventana.
      */
     public MenuReserva() {
         initComponents();
@@ -193,12 +200,22 @@ public class MenuReserva extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Método que se ejecuta al presionar el botón "Actualizar".
+     * Actualiza la lista de reervas para mostrar en la tabla
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         //actualizamos la tabla
         actualizarTablaReservas();
     }//GEN-LAST:event_btnActualizarActionPerformed
-
+    /**
+     * Método que se ejecuta al presionar el botón "Eliminar".
+     * Elimina la reserva seleccionada.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         int selectedRow = tblReservas.getSelectedRow();
 
@@ -222,14 +239,22 @@ public class MenuReserva extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnEliminarActionPerformed
-
+    /** Acción ejecutada al presionar el botón de Nuevo
+     * Cierra la ventana actual y abre la ventana de NuevaReserva.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         //viajamos a la ventana de nueva reserva
         NuevaReserva nueva = new NuevaReserva();
         nueva.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnNuevoActionPerformed
-
+    /** Acción ejecutada al presionar el botón de volver
+     * Cierra la ventana actual y abre la ventana de Menu.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         //volvemos al menu principal
 
@@ -239,6 +264,7 @@ public class MenuReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
+     * Método principal que lanza la aplicación.
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -275,9 +301,6 @@ public class MenuReserva extends javax.swing.JFrame {
     private void actualizarTablaReservas() {
         // obtener todas las reservas
         List<Reservas> reservas = res.findAllReservas();
-        
-     
-
         // mostramos la cabezas de la tabla
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Dni");

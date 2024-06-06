@@ -14,13 +14,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * Clase Menu Actividades
+ * Permite moverte por las diferentes opciones de las actividades agregar, editar, eliminar y actualizar. . 
+ * @version 1.0
  */
 public class MenuActividades extends javax.swing.JFrame {
     private ActividadJpaController activ;
     /**
      * Creates new form Usuarios
+     */
+    
+    /**
+     * Constructor por defecto
+     * Inicializa los componentes y establece configuraciones básicas de la ventana.
      */
     public MenuActividades() {
         initComponents();
@@ -207,12 +214,22 @@ public class MenuActividades extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Método que se ejecuta al presionar el botón "Actualizar".
+     * Actualiza la lista de actividades para mostrar en la tabla
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnActualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar1ActionPerformed
         //actualizamor la tabla
         actualizarTablaActividad();
     }//GEN-LAST:event_btnActualizar1ActionPerformed
-
+    /**
+     * Método que se ejecuta al presionar el botón "Eliminar".
+     * Elimina la actividad seleccionada siempre y cuando no este en alguna reserva.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         //la fila de la tabla seleccionada es la que se elimina
         int selectedRow = tblActividades.getSelectedRow();
@@ -237,14 +254,23 @@ public class MenuActividades extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnEliminarActionPerformed
-
+    /** Acción ejecutada al presionar el botón de Nuevo
+     * Cierra la ventana actual y abre la ventana de NuevaActividad.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         //vamos a la ventana de nueva actividad para agregar actividades
         NuevaActividad nueva = new NuevaActividad();
         nueva.setVisible(true);
         this.dispose(); 
     }//GEN-LAST:event_btnNuevoActionPerformed
-
+    /**
+     * Método que se ejecuta al presionar el botón "Editar".
+     * Valida los datos ingresados y modifica los datos de la actividad en la base de datos.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         
         int selectedRow = tblActividades.getSelectedRow();
@@ -267,7 +293,11 @@ public class MenuActividades extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnEditarActionPerformed
-
+    /** Acción ejecutada al presionar el botón de volver
+     * Cierra la ventana actual y abre la ventana de Menu.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
        //volvemos al menu principal
        Menu menu = new Menu();
@@ -276,6 +306,7 @@ public class MenuActividades extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
+     * Método principal que lanza la aplicación.
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -309,6 +340,7 @@ public class MenuActividades extends javax.swing.JFrame {
             }
         });
     }
+
     private void actualizarTablaActividad() { //funcion para actualizar las lista
     // obtener todas las actividades
         List<Actividad> actividad = activ.findAllActividad();

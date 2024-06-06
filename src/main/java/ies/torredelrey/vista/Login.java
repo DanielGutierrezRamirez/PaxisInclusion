@@ -6,8 +6,6 @@ package ies.torredelrey.vista;
 
 import ies.torredelrey.controlador.AdministradorJpaController;
 import ies.torredelrey.modelo.Administrador;
-import java.awt.Color;
-import java.awt.Image;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 import javax.persistence.EntityManagerFactory;
@@ -16,14 +14,21 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * Clase Login 
+ * Permite a los administradores iniciar sesión o registrarse. 
+ * @version 1.0
  */
+
 public class Login extends javax.swing.JFrame {
     private EntityManagerFactory emf;
     private AdministradorJpaController admin;
     /**
      * Creates new form Login
+     */
+    /**
+     * Constructor por defecto
+     * Inicializa los componentes y establece configuraciones básicas de la ventana.
      */
     public Login() {
         initComponents();
@@ -160,7 +165,12 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Acción ejecutada al presionar el botón de inicio de sesión.
+     * Valida los datos ingresados y verifica si existe el usuario en la base de datos.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
     boolean salir = false;
     //patron dni
@@ -201,7 +211,12 @@ public class Login extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(this, "Ese usuario no existe");
 
     }//GEN-LAST:event_btnInicioActionPerformed
-
+    /**
+     * Acción ejecutada al presionar el botón de registrar.
+     * Cierra la ventana actual y abre la ventana de registrar cuenta.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         //si no tenemos cuenta pulsamos en registrar para que nos lleve a la pagina de nuevo administrador
         RegistrarCuenta rc = new RegistrarCuenta();
@@ -209,7 +224,12 @@ public class Login extends javax.swing.JFrame {
         this.dispose();
                       
     }//GEN-LAST:event_btnRegistrarActionPerformed
-
+    /**
+     * Acción ejecutada al presionar el texto de Olvidar contrasela.
+     * Cierra la ventana actual y abre la ventana de restablecer contraseña.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void lblOlvidarContrasenaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblOlvidarContrasenaMouseClicked
         //si no nos acordamos de la contraseña pinchamos aqui y la podemos modificar
         RestablecerContrasena rc = new RestablecerContrasena();
@@ -218,6 +238,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_lblOlvidarContrasenaMouseClicked
 
     /**
+     * Método principal que lanza la aplicación.
      * @param args the command line arguments
      */
     public static void main(String args[]) {

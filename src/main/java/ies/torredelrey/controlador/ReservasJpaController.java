@@ -18,11 +18,42 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 /**
- *
- * @author 34662
+ * 
+ * @author Daniel Gutierrez Ramirez
+ * 
+ * Controlador JPA para la entidad Reservas.
+ * Proporciona métodos para crear, editar, eliminar y buscar reservas, así como verificar la existencia de una reserva.
+ * @version 1.0
  */
 public class ReservasJpaController implements Serializable {
 
+    private EntityManagerFactory emf = null;
+
+    /**
+     * Constructor que recibe una fábrica de entidades.
+     * 
+     * @param emf La fábrica de entidades para manejar las operaciones JPA.
+     */
+    public ReservasJpaController(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
+
+    /**
+     * Obtiene el EntityManager para manejar las operaciones JPA.
+     * 
+     * @return El EntityManager.
+     */
+    public EntityManager getEntityManager() {
+        return emf.createEntityManager();
+    }
+
+    /**
+     * Verifica si existe una reserva para un usuario y actividad específicos.
+     * 
+     * @param dni El DNI del usuario.
+     * @param nombreActividad El nombre de la actividad.
+     * @return true si la reserva existe, false en caso contrario.
+     */
     public boolean existeReserva(String dni, String nombreActividad) {
         EntityManager em = null;
         try {
@@ -38,16 +69,12 @@ public class ReservasJpaController implements Serializable {
             }
         }
     }
-    
-    public ReservasJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
-    }
-    private EntityManagerFactory emf = null;
 
-    public EntityManager getEntityManager() {
-        return emf.createEntityManager();
-    }
-
+    /**
+     * Crea una nueva reserva.
+     * 
+     * @param reservas La reserva a crear.
+     */
     public void create(Reservas reservas) {
         EntityManager em = null;
         try {
@@ -80,6 +107,13 @@ public class ReservasJpaController implements Serializable {
         }
     }
 
+    /**
+     * Edita una reserva existente.
+     * 
+     * @param reservas La reserva a editar.
+     * @throws NonexistentEntityException Si la reserva no existe.
+     * @throws Exception Si ocurre un error durante la edición.
+     */
     public void edit(Reservas reservas) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -132,6 +166,12 @@ public class ReservasJpaController implements Serializable {
         }
     }
 
+    /**
+     * Elimina una reserva por su ID.
+     * 
+     * @param id El ID de la reserva a eliminar.
+     * @throws NonexistentEntityException Si la reserva no existe.
+     */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -163,14 +203,34 @@ public class ReservasJpaController implements Serializable {
         }
     }
 
+    /**
+     * Encuentra todas las entidades de reservas.
+     * 
+     * @return Una lista de todas las reservas.
+     */
     public List<Reservas> findReservasEntities() {
         return findReservasEntities(true, -1, -1);
     }
 
+    /**
+     * Encuentra un subconjunto de entidades de reservas.
+     * 
+     * @param maxResults El número máximo de resultados.
+     * @param firstResult El primer resultado a devolver.
+     * @return Una lista de reservas.
+     */
     public List<Reservas> findReservasEntities(int maxResults, int firstResult) {
         return findReservasEntities(false, maxResults, firstResult);
     }
 
+    /**
+     * Encuentra las entidades de reservas.
+     * 
+     * @param all Si se deben devolver todas las entidades.
+     * @param maxResults El número máximo de resultados.
+     * @param firstResult El primer resultado a devolver.
+     * @return Una lista de reservas.
+     */
     private List<Reservas> findReservasEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
@@ -187,6 +247,12 @@ public class ReservasJpaController implements Serializable {
         }
     }
 
+    /**
+     * Encuentra una reserva por su ID.
+     * 
+     * @param id El ID de la reserva.
+     * @return La reserva encontrada.
+     */
     public Reservas findReservas(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -196,6 +262,11 @@ public class ReservasJpaController implements Serializable {
         }
     }
 
+    /**
+     * Obtiene el conteo total de reservas.
+     * 
+     * @return El número total de reservas.
+     */
     public int getReservasCount() {
         EntityManager em = getEntityManager();
         try {
@@ -209,8 +280,12 @@ public class ReservasJpaController implements Serializable {
         }
     }
 
+    /**
+     * Encuentra todas las reservas.
+     * 
+     * @return Una lista de todas las reservas.
+     */
     public List<Reservas> findAllReservas() {
         return findReservasEntities(true, -1, -1);
     }
-    
 }

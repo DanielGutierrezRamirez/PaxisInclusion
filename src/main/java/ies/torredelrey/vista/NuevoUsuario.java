@@ -18,13 +18,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author 34662
+ * @author Daniel Gutierrez Ramirez
+ * Clase Nuevo Usuario
+ * Permite crear un nuevo usuario. . 
+ * @version 1.0
  */
+
 public class NuevoUsuario extends javax.swing.JFrame {
     private UsuariosJpaController Usur;
     /**
      * Creates new form NuevoUsuario
+     */
+    /**
+     * Constructor por defecto
+     * Inicializa los componentes y establece configuraciones básicas de la ventana.
      */
     public NuevoUsuario() {
         initComponents();
@@ -287,7 +294,12 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Método que se ejecuta al presionar el botón "Guardar".
+     * Valida los datos ingresados y crea un nuevo usuario en la base de datos.
+     * 
+     * @param evt El evento de acción.
+     */
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Usuarios usuario = new Usuarios();
         boolean salir = false;
@@ -404,7 +416,11 @@ public class NuevoUsuario extends javax.swing.JFrame {
             Logger.getLogger(NuevoUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+    /** Acción ejecutada al presionar el botón de Reset
+     * Resetea los campos dejandolos en blanco.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // Reseteamos los campos de texto 
         txtDni.setText("");
@@ -423,7 +439,11 @@ public class NuevoUsuario extends javax.swing.JFrame {
         // Restablecemos el valor de genero
         cbxGenero.setSelectedIndex(0);
     }//GEN-LAST:event_btnResetActionPerformed
-
+    /** Acción ejecutada al presionar el botón de Salir
+     * Cierra la ventana actual y abre la ventana de MenuUsuario.
+     * 
+     * @param evt El evento de acción.
+     **/
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         //viajamos a la ventana de Menu Usuarios
         MenuUsuarios usuariomenu = new MenuUsuarios();
@@ -432,6 +452,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
+     * Método principal que lanza la aplicación.
      * @param args the command line arguments
      */
     public static void main(String args[]) {
