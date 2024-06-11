@@ -417,6 +417,9 @@ public class EditarUsuario extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(EditarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
+        MenuUsuarios menu = new MenuUsuarios();
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnModificarActionPerformed
     /**
      * Método que se ejecuta al presionar el botón "Reset".

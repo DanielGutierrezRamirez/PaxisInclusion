@@ -89,8 +89,8 @@
             </resource>
             <!-- Incluye los recursos de la carpeta reports -->
             <resource>
-                <directory>src/main/resources/reports</directory>
-                <targetPath>reports</targetPath>
+                <directory>src/main/resources/report</directory>
+                <targetPath>report</targetPath>
             </resource>
             <!-- Incluye otros recursos específicos del proyecto -->
             <resource>

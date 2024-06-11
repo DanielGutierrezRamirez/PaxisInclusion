@@ -415,6 +415,9 @@ public class NuevoUsuario extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(NuevoUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
+        MenuUsuarios menu = new MenuUsuarios();
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
     /** Acción ejecutada al presionar el botón de Reset
      * Resetea los campos dejandolos en blanco.

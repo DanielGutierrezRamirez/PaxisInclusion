@@ -7,10 +7,12 @@ package ies.torredelrey.vista;
 import ies.torredelrey.generador.Generador;
 import ies.torredelrey.controlador.ReservasJpaController;
 import ies.torredelrey.modelo.Administrador;
+import ies.torredelrey.modelo.Reservas;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.ImageIcon;
@@ -51,9 +53,15 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu(String nombreAdministrador) {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/img/LogoPaxis.jpeg")).getImage()); //icono de pantalla
+        setLocationRelativeTo(null); //centrar la pantalla
+        setResizable(false); // no se pueda maximizar
         this.nombreAdministrador = nombreAdministrador;
         // Mostrar el saludo del administrador al entrar al Menu
         lblSaludo.setText("Hola " + nombreAdministrador + ", bienvenido");
+        // creamos una instancia del controlador UsuariosJpaController
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
+        res = new ReservasJpaController(emf);
     }
     
     /**
@@ -622,7 +630,15 @@ public class Menu extends javax.swing.JFrame {
      * @param evt El evento de acción.
      **/
     private void btnInformesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformesActionPerformed
-         Generador.leerInformeReservas(res.findReservasEntities(), "src\\main\\resources\\report\\Reservas.jasper", "Reservas.pdf");
+        List<Reservas> reservas = res.findReservasEntities();
+        if (reservas != null && !reservas.isEmpty()) {
+            Generador.leerInformeReservas(reservas, "src\\main\\resources\\report\\Reservas.jasper", "Reservas.pdf");
+        } else {
+            System.out.println("No hay reservas para generar el informe.");
+        }
+        Menu menu = new Menu();
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnInformesActionPerformed
 
     /**

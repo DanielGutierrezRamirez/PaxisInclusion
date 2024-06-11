@@ -4,9 +4,12 @@
  */
 package ies.torredelrey.generador;
 
+import ies.torredelrey.modelo.Reservas;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.sf.jasperreports.engine.JRDataSource;
@@ -48,4 +51,6 @@ public class Generador {
             Logger.getLogger(Generador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
 }

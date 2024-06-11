@@ -230,11 +230,14 @@ public class NuevaActividad extends javax.swing.JFrame {
             
             activ.create(actividad);
 
-            JOptionPane.showMessageDialog(rootPane, "Usuario creado con exito");
+            JOptionPane.showMessageDialog(rootPane, "Actividad creada con exito");
             this.dispose(); // Cerrar ventana
         } catch (Exception ex) {
             Logger.getLogger(NuevaActividad.class.getName()).log(Level.SEVERE, null, ex);
         }
+        MenuActividades menu = new MenuActividades();
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
     /** Acción ejecutada al presionar el botón de reset
      * Resetea los campos dejandolos en blanco.

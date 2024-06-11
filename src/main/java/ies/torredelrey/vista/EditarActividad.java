@@ -61,6 +61,7 @@ public class EditarActividad extends javax.swing.JFrame {
         }
         
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -241,6 +242,9 @@ public class EditarActividad extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(EditarActividad.class.getName()).log(Level.SEVERE, null, ex);
         }
+        MenuActividades menu = new MenuActividades();
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnModificarActionPerformed
     /**
      * Método que se ejecuta al presionar el botón "Reset".
