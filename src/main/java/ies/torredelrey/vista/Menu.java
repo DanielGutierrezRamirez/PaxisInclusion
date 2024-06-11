@@ -636,9 +636,7 @@ public class Menu extends javax.swing.JFrame {
         } else {
             System.out.println("No hay reservas para generar el informe.");
         }
-        Menu menu = new Menu();
-        menu.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_btnInformesActionPerformed
 
     /**
